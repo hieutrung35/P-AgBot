@@ -1,0 +1,12 @@
+<launch>
+    <include file="$(find p_agbot)/launch/simulation_world.launch" />
+    
+    <include file="$(find p_agbot)/launch/amcl_lds.launch">
+        <arg name="map_file" value="$(find p_agbot)/map/corn_field.yaml" />
+    </include>
+
+    <!-- Rviz visualization -->
+    <arg name="rviz"   value="$(find p_agbot)/rviz/p_agbot.rviz" /> 
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz)" />
+</launch>
